@@ -1,7 +1,7 @@
 {
   "name": "sonolus-bandori-skin-generator",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.mjs",
   "scripts": {
     "lint": "tsc -p . --noEmit && eslint --ext .mts src/",
