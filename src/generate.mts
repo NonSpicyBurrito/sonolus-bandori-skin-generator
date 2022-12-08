@@ -11,7 +11,7 @@ import { MiscResources } from './resources/misc.mjs'
 import { NoteResources } from './resources/note.mjs'
 import { Image } from './utils/Image.mjs'
 import { crop, resize, rotate } from './utils/processing.mjs'
-import { servers } from './utils/servers.mjs'
+import { localizations, servers } from './utils/servers.mjs'
 import { scale } from './utils/transform.mjs'
 
 export const generate = async (
@@ -468,8 +468,8 @@ const getInfo = (
 ) => ({
     version: 2,
     title: Object.fromEntries(
-        servers.map((server, i) => [
-            server,
+        servers.map((_, i) => [
+            localizations[i],
             `${noteTexts[i]} / ${directionalFlickTexts[i]} / ${laneTexts[i]}`,
         ])
     ),
