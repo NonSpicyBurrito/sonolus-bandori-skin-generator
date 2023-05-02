@@ -13,7 +13,7 @@
     "fs-extra": "^11.0.0",
     "node-fetch": "^3.3.0",
     "sharp": "^0.31.2",
-    "sonolus-core": "^6.0.0"
+    "sonolus-core": "^7.0.0-beta.0"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
