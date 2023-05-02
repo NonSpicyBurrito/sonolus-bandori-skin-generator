@@ -1,10 +1,4 @@
-import {
-    compressSync,
-    customSkinSprite,
-    SkinData,
-    SkinDataTransform,
-    SkinSprite,
-} from 'sonolus-core'
+import { compressSync, SkinData, SkinDataTransform, SkinSpriteName } from 'sonolus-core'
 import { DirectionalFlickResources } from './resources/directional-flick.mjs'
 import { LaneResources } from './resources/lane.mjs'
 import { MiscResources } from './resources/misc.mjs'
@@ -65,354 +59,354 @@ const getSprites = (
 
     return [
         {
-            ids: [SkinSprite.NoteHeadNeutral, SkinSprite.NoteTailNeutral],
+            names: [SkinSpriteName.NoteHeadNeutral, SkinSpriteName.NoteTailNeutral],
             image: note.noteNeutral,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteHeadRed, SkinSprite.NoteTailRed],
+            names: [SkinSpriteName.NoteHeadRed, SkinSpriteName.NoteTailRed],
             image: note.noteRed,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteHeadGreen, SkinSprite.NoteTailGreen],
+            names: [SkinSpriteName.NoteHeadGreen, SkinSpriteName.NoteTailGreen],
             image: note.noteGreen,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteHeadBlue, SkinSprite.NoteTailBlue],
+            names: [SkinSpriteName.NoteHeadBlue, SkinSpriteName.NoteTailBlue],
             image: note.noteBlue,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteHeadYellow, SkinSprite.NoteTailYellow],
+            names: [SkinSpriteName.NoteHeadYellow, SkinSpriteName.NoteTailYellow],
             image: note.noteYellow,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteHeadPurple, SkinSprite.NoteTailPurple],
+            names: [SkinSpriteName.NoteHeadPurple, SkinSpriteName.NoteTailPurple],
             image: note.notePurple,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteHeadCyan, SkinSprite.NoteTailCyan],
+            names: [SkinSpriteName.NoteHeadCyan, SkinSpriteName.NoteTailCyan],
             image: note.noteCyan,
             transform: noteTransform,
         },
 
         {
-            ids: [SkinSprite.NoteTickNeutral],
+            names: [SkinSpriteName.NoteTickNeutral],
             image: note.tickNeutral,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteTickRed],
+            names: [SkinSpriteName.NoteTickRed],
             image: note.tickRed,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteTickGreen],
+            names: [SkinSpriteName.NoteTickGreen],
             image: note.tickGreen,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteTickBlue],
+            names: [SkinSpriteName.NoteTickBlue],
             image: note.tickBlue,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteTickYellow],
+            names: [SkinSpriteName.NoteTickYellow],
             image: note.tickYellow,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteTickPurple],
+            names: [SkinSpriteName.NoteTickPurple],
             image: note.tickPurple,
             transform: noteTransform,
         },
         {
-            ids: [SkinSprite.NoteTickCyan],
+            names: [SkinSpriteName.NoteTickCyan],
             image: note.tickCyan,
             transform: noteTransform,
         },
 
         {
-            ids: [SkinSprite.NoteConnectionNeutral],
+            names: [SkinSpriteName.NoteConnectionNeutral],
             image: note.longNeutral,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionRed],
+            names: [SkinSpriteName.NoteConnectionRed],
             image: note.longRed,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionGreen],
+            names: [SkinSpriteName.NoteConnectionGreen],
             image: note.longGreen,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionBlue],
+            names: [SkinSpriteName.NoteConnectionBlue],
             image: note.longBlue,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionYellow],
+            names: [SkinSpriteName.NoteConnectionYellow],
             image: note.longYellow,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionPurple],
+            names: [SkinSpriteName.NoteConnectionPurple],
             image: note.longPurple,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionCyan],
+            names: [SkinSpriteName.NoteConnectionCyan],
             image: note.longCyan,
             transform: longTransform,
         },
 
         {
-            ids: [SkinSprite.NoteConnectionNeutralSeamless],
+            names: [SkinSpriteName.NoteConnectionNeutralSeamless],
             image: note.slideNeutral,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionRedSeamless],
+            names: [SkinSpriteName.NoteConnectionRedSeamless],
             image: note.slideRed,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionGreenSeamless],
+            names: [SkinSpriteName.NoteConnectionGreenSeamless],
             image: note.slideGreen,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionBlueSeamless],
+            names: [SkinSpriteName.NoteConnectionBlueSeamless],
             image: note.slideBlue,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionYellowSeamless],
+            names: [SkinSpriteName.NoteConnectionYellowSeamless],
             image: note.slideYellow,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionPurpleSeamless],
+            names: [SkinSpriteName.NoteConnectionPurpleSeamless],
             image: note.slidePurple,
             transform: longTransform,
         },
         {
-            ids: [SkinSprite.NoteConnectionCyanSeamless],
+            names: [SkinSpriteName.NoteConnectionCyanSeamless],
             image: note.slideCyan,
             transform: longTransform,
         },
 
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionNeutral,
-                SkinSprite.SimultaneousConnectionNeutralSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionNeutral,
+                SkinSpriteName.SimultaneousConnectionNeutralSeamless,
             ],
             image: note.simLineNeutral,
             transform: simLineTransform,
         },
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionRed,
-                SkinSprite.SimultaneousConnectionRedSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionRed,
+                SkinSpriteName.SimultaneousConnectionRedSeamless,
             ],
             image: note.simLineRed,
             transform: simLineTransform,
         },
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionGreen,
-                SkinSprite.SimultaneousConnectionGreenSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionGreen,
+                SkinSpriteName.SimultaneousConnectionGreenSeamless,
             ],
             image: note.simLineGreen,
             transform: simLineTransform,
         },
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionBlue,
-                SkinSprite.SimultaneousConnectionBlueSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionBlue,
+                SkinSpriteName.SimultaneousConnectionBlueSeamless,
             ],
             image: note.simLineBlue,
             transform: simLineTransform,
         },
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionYellow,
-                SkinSprite.SimultaneousConnectionYellowSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionYellow,
+                SkinSpriteName.SimultaneousConnectionYellowSeamless,
             ],
             image: note.simLineYellow,
             transform: simLineTransform,
         },
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionPurple,
-                SkinSprite.SimultaneousConnectionPurpleSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionPurple,
+                SkinSpriteName.SimultaneousConnectionPurpleSeamless,
             ],
             image: note.simLinePurple,
             transform: simLineTransform,
         },
         {
-            ids: [
-                SkinSprite.SimultaneousConnectionCyan,
-                SkinSprite.SimultaneousConnectionCyanSeamless,
+            names: [
+                SkinSpriteName.SimultaneousConnectionCyan,
+                SkinSpriteName.SimultaneousConnectionCyanSeamless,
             ],
             image: note.simLineCyan,
             transform: simLineTransform,
         },
 
         {
-            ids: [SkinSprite.DirectionalMarkerNeutral],
+            names: [SkinSpriteName.DirectionalMarkerNeutral],
             image: note.markerNeutral,
             transform: markerTransform,
         },
         {
-            ids: [SkinSprite.DirectionalMarkerRed],
+            names: [SkinSpriteName.DirectionalMarkerRed],
             image: note.markerRed,
             transform: markerTransform,
         },
         {
-            ids: [SkinSprite.DirectionalMarkerGreen],
+            names: [SkinSpriteName.DirectionalMarkerGreen],
             image: note.markerGreen,
             transform: markerTransform,
         },
         {
-            ids: [SkinSprite.DirectionalMarkerBlue],
+            names: [SkinSpriteName.DirectionalMarkerBlue],
             image: note.markerBlue,
             transform: markerTransform,
         },
         {
-            ids: [SkinSprite.DirectionalMarkerYellow],
+            names: [SkinSpriteName.DirectionalMarkerYellow],
             image: note.markerYellow,
             transform: markerTransform,
         },
         {
-            ids: [SkinSprite.DirectionalMarkerPurple],
+            names: [SkinSpriteName.DirectionalMarkerPurple],
             image: note.markerPurple,
             transform: markerTransform,
         },
         {
-            ids: [SkinSprite.DirectionalMarkerCyan],
+            names: [SkinSpriteName.DirectionalMarkerCyan],
             image: note.markerCyan,
             transform: markerTransform,
         },
 
         {
-            ids: [SkinSprite.StageMiddle],
+            names: [SkinSpriteName.StageMiddle],
             image: lane.middle,
             transform: unitTransform,
         },
 
         {
-            ids: [SkinSprite.StageLeftBorder, SkinSprite.StageLeftBorderSeamless],
+            names: [SkinSpriteName.StageLeftBorder, SkinSpriteName.StageLeftBorderSeamless],
             image: lane.borderLeft,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.StageRightBorder, SkinSprite.StageRightBorderSeamless],
+            names: [SkinSpriteName.StageRightBorder, SkinSpriteName.StageRightBorderSeamless],
             image: lane.borderRight,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.StageTopBorder, SkinSprite.StageTopBorderSeamless],
+            names: [SkinSpriteName.StageTopBorder, SkinSpriteName.StageTopBorderSeamless],
             image: lane.borderTop,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.StageBottomBorder, SkinSprite.StageBottomBorderSeamless],
+            names: [SkinSpriteName.StageBottomBorder, SkinSpriteName.StageBottomBorderSeamless],
             image: lane.borderBottom,
             transform: unitTransform,
         },
 
         {
-            ids: [SkinSprite.StageTopLeftCorner],
+            names: [SkinSpriteName.StageTopLeftCorner],
             image: lane.cornerTopLeft,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.StageTopRightCorner],
+            names: [SkinSpriteName.StageTopRightCorner],
             image: lane.cornerTopRight,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.StageBottomLeftCorner],
+            names: [SkinSpriteName.StageBottomLeftCorner],
             image: lane.cornerBottomLeft,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.StageBottomRightCorner],
+            names: [SkinSpriteName.StageBottomRightCorner],
             image: lane.cornerBottomRight,
             transform: unitTransform,
         },
 
         {
-            ids: [SkinSprite.Lane, SkinSprite.LaneSeamless],
+            names: [SkinSpriteName.Lane, SkinSpriteName.LaneSeamless],
             image: lane.lane,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.LaneAlternative, SkinSprite.LaneAlternativeSeamless],
+            names: [SkinSpriteName.LaneAlternative, SkinSpriteName.LaneAlternativeSeamless],
             image: lane.laneAlternative,
             transform: unitTransform,
         },
 
         {
-            ids: [SkinSprite.JudgmentLine],
+            names: [SkinSpriteName.JudgmentLine],
             image: lane.line,
             transform: unitTransform,
         },
         {
-            ids: [SkinSprite.NoteSlot],
+            names: [SkinSpriteName.NoteSlot],
             image: lane.slot,
             transform: unitTransform,
         },
 
         {
-            ids: [SkinSprite.StageCover],
+            names: [SkinSpriteName.StageCover],
             image: misc.cover,
             transform: unitTransform,
         },
 
         {
-            ids: [customSkinSprite(1, 1)],
+            names: ['Bandori Stage'],
             image: lane.stageImage,
             transform: unitTransform,
         },
         {
-            ids: [customSkinSprite(1, 2)],
+            names: ['Bandori Judgment Line'],
             image: lane.lineImage,
             transform: scale(1, lane.lineImage.height / lane.lineImage.width / (90 / 1800)),
         },
 
         {
-            ids: [customSkinSprite(1, 11)],
+            names: ['Bandori Directional Flick Note Left'],
             image: directionalFlick.noteLeft,
             transform: directionalFlickTransform,
         },
         {
-            ids: [customSkinSprite(1, 12)],
+            names: ['Bandori Directional Flick Note Right'],
             image: directionalFlick.noteRight,
             transform: directionalFlickTransform,
         },
 
         {
-            ids: [customSkinSprite(1, 21)],
+            names: ['Bandori Directional Flick Marker Left'],
             image: directionalFlick.markerLeft,
             transform: markerTransform,
         },
         {
-            ids: [customSkinSprite(1, 22)],
+            names: ['Bandori Directional Flick Marker Right'],
             image: directionalFlick.markerRight,
             transform: markerTransform,
         },
     ]
 }
 
-const getLayouts = (sprites: { ids: number[]; image: Image; transform: SkinDataTransform }[]) => {
+const getLayouts = (sprites: { names: string[]; image: Image; transform: SkinDataTransform }[]) => {
     const spaces = [{ x: 0, y: 0, width: 2048, height: 2048 }]
 
     return sprites
@@ -466,7 +460,7 @@ const getInfo = (
     packageName: string,
     packageVersion: string
 ) => ({
-    version: 2,
+    version: 3,
     title: Object.fromEntries(
         servers.map((_, i) => [
             localizations[i],
@@ -501,7 +495,7 @@ const getData = (
     layouts: {
         x: number
         y: number
-        ids: number[]
+        names: string[]
         image: Image
         transform: SkinDataTransform
     }[]
@@ -512,8 +506,8 @@ const getData = (
         interpolation: true,
         sprites: layouts
             .map((layout) =>
-                layout.ids.map((id) => ({
-                    id,
+                layout.names.map((name) => ({
+                    name,
                     x: layout.x,
                     y: layout.y,
                     w: layout.image.width,
@@ -531,7 +525,7 @@ const getTexture = async (
     layouts: {
         x: number
         y: number
-        ids: number[]
+        names: string[]
         image: Image
         transform: SkinDataTransform
     }[]
