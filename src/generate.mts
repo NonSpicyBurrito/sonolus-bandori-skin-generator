@@ -4,7 +4,7 @@ import { LaneResources } from './resources/lane.mjs'
 import { MiscResources } from './resources/misc.mjs'
 import { NoteResources } from './resources/note.mjs'
 import { Image } from './utils/Image.mjs'
-import { crop, resize, rotate } from './utils/processing.mjs'
+import { crop, resize } from './utils/processing.mjs'
 import { localizations, servers } from './utils/servers.mjs'
 import { scale } from './utils/transform.mjs'
 
@@ -55,7 +55,6 @@ const getSprites = (
     const longTransform = unitTransform
     const markerTransform = scale(0.75, 0.75)
     const simLineTransform = scale(1, 0.5)
-    const directionalFlickTransform = scale(1.2, 1.3)
 
     return [
         {
@@ -385,12 +384,12 @@ const getSprites = (
         {
             names: ['Bandori Directional Flick Note Left'],
             image: directionalFlick.noteLeft,
-            transform: directionalFlickTransform,
+            transform: noteTransform,
         },
         {
             names: ['Bandori Directional Flick Note Right'],
             image: directionalFlick.noteRight,
-            transform: directionalFlickTransform,
+            transform: noteTransform,
         },
 
         {
@@ -600,8 +599,8 @@ const getThumbnail = async (
                 toThumbnailComposition(note.noteRed, 0, 0, 2, 1),
                 toThumbnailComposition(note.noteCyan, 2, 0, 2, 1),
                 toThumbnailComposition(note.noteGreen, 4, 0, 2, 1),
-                toThumbnailComposition(await rotate(directionalFlick.noteLeft, -90), 0, 1, 2, 1),
-                toThumbnailComposition(await rotate(directionalFlick.noteRight, 90), 4, 1, 2, 1),
+                toThumbnailComposition(directionalFlick.noteLeft, 0, 1, 2, 1),
+                toThumbnailComposition(directionalFlick.noteRight, 4, 1, 2, 1),
             ])
         )
         .png({ compressionLevel: 9 })
