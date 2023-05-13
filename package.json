@@ -4,7 +4,7 @@
   "version": "1.0.1",
   "main": "dist/index.mjs",
   "scripts": {
-    "lint": "tsc -p . --noEmit && eslint --ext .mts src/",
+    "prebuild": "tsc -p . --noEmit && eslint --ext .mts ./src",
     "build": "tsc -p .",
     "start": "node ."
   },
