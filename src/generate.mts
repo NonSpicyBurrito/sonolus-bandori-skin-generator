@@ -562,6 +562,32 @@ const getTexture = async (
                         )
                     )
                 ),
+                await Promise.all(
+                    layouts.map(({ image, x, y }) =>
+                        crop(image, 0, 0, 1, 1).then((pad) => toComposition(pad, x - 1, y - 1))
+                    )
+                ),
+                await Promise.all(
+                    layouts.map(({ image, x, y }) =>
+                        crop(image, image.width - 1, 0, 1, 1).then((pad) =>
+                            toComposition(pad, x + image.width, y - 1)
+                        )
+                    )
+                ),
+                await Promise.all(
+                    layouts.map(({ image, x, y }) =>
+                        crop(image, 0, image.height - 1, 1, 1).then((pad) =>
+                            toComposition(pad, x - 1, y + image.height)
+                        )
+                    )
+                ),
+                await Promise.all(
+                    layouts.map(({ image, x, y }) =>
+                        crop(image, image.width - 1, image.height - 1, 1, 1).then((pad) =>
+                            toComposition(pad, x + image.width, y + image.height)
+                        )
+                    )
+                ),
             ].flat()
         )
         .png({ compressionLevel: 9 })
