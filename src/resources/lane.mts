@@ -24,14 +24,14 @@ export const getLaneResources = async (id: string, server: Server, texts: string
 
     const laneRatio = minimize((x) => getLaneRatioFitness(flattened, x), 0.13, 0.135, 0.0001)
     const lane = mirrorAverageHeight(
-        merge(flattened, [0.5 - laneRatio * 2, 0.5, 0.5 + laneRatio * 2], laneRatio)
+        merge(flattened, [0.5 - laneRatio * 2, 0.5, 0.5 + laneRatio * 2], laneRatio),
     )
     const laneAlternative = mirrorAverageHeight(
         merge(
             flattened,
             [0.5 - laneRatio * 3, 0.5 - laneRatio * 1, 0.5 + laneRatio * 1, 0.5 + laneRatio * 3],
-            laneRatio
-        )
+            laneRatio,
+        ),
     )
 
     const middle = middleAverage(lane)
@@ -217,7 +217,7 @@ const merge = (image: Image, centers: number[], size: number) => {
         Buffer.from(sums.map((sum) => Math.round(sum / centers.length))),
         nWidth,
         1,
-        channels
+        channels,
     )
 }
 
@@ -231,7 +231,7 @@ const mirrorAverageHeight = (image: Image) => {
                 x,
                 0,
                 c,
-                Math.round((image.get(x, 0, c) + image.get(width - 1 - x, 0, c)) / 2)
+                Math.round((image.get(x, 0, c) + image.get(width - 1 - x, 0, c)) / 2),
             )
         }
     }
@@ -298,7 +298,7 @@ const mirrorAverageWidth = (image: Image) => {
                 0,
                 y,
                 c,
-                Math.round((image.get(0, y, c) + image.get(0, height - 1 - y, c)) / 2)
+                Math.round((image.get(0, y, c) + image.get(0, height - 1 - y, c)) / 2),
             )
         }
     }

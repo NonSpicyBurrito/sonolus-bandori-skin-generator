@@ -6,13 +6,13 @@ export const resize = async (
     image: Image,
     width: number,
     height: number,
-    kernel: keyof KernelEnum = 'nearest'
+    kernel: keyof KernelEnum = 'nearest',
 ) =>
     new Image(
         await image.toSharp().resize(width, height, { fit: 'fill', kernel }).toBuffer(),
         width,
         height,
-        image.channels
+        image.channels,
     )
 
 export const crop = async (image: Image, x: number, y: number, width: number, height: number) =>
@@ -20,7 +20,7 @@ export const crop = async (image: Image, x: number, y: number, width: number, he
         await image.toSharp().extract({ left: x, top: y, width, height }).toBuffer(),
         width,
         height,
-        image.channels
+        image.channels,
     )
 
 export const rotate = async (image: Image, angle: -90 | 90 | 180) =>
@@ -28,7 +28,7 @@ export const rotate = async (image: Image, angle: -90 | 90 | 180) =>
         await image.toSharp().rotate(angle).toBuffer(),
         angle === 180 ? image.width : image.height,
         angle === 180 ? image.height : image.width,
-        image.channels
+        image.channels,
     )
 
 export const greyScale = (image: Image) => {
@@ -59,7 +59,7 @@ export const recolor = (image: Image, h: number) => {
             const [, s, v] = convert.rgb.hsv(
                 image.get(x, y, 0),
                 image.get(x, y, 1),
-                image.get(x, y, 2)
+                image.get(x, y, 2),
             )
             const [r, g, b] = convert.hsv.rgb([h, s, v])
 
@@ -82,7 +82,7 @@ export const colorize = (image: Image, h: number, s: number) => {
             const [, , v] = convert.rgb.hsv(
                 image.get(x, y, 0),
                 image.get(x, y, 1),
-                image.get(x, y, 2)
+                image.get(x, y, 2),
             )
             const [r, g, b] = convert.hsv.rgb([h, s, v])
 

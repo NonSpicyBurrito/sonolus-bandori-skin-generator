@@ -24,7 +24,7 @@ for (const note of resources.notes) {
                 lane,
                 resources.misc,
                 packageName,
-                packageVersion
+                packageVersion,
             )
 
             fs.outputJsonSync(`output/${name}/info.json`, info, { spaces: 4 })

@@ -14,7 +14,7 @@ export const generate = async (
     lane: LaneResources,
     misc: MiscResources,
     packageName: string,
-    packageVersion: string
+    packageVersion: string,
 ) => {
     const name = `bandori-${note.name}-${directionalFlick.name}-${lane.name}`
     console.log('Generating', name, 'resources...')
@@ -27,7 +27,7 @@ export const generate = async (
         directionalFlick.texts,
         lane.texts,
         packageName,
-        packageVersion
+        packageVersion,
     )
     const data = getData(layouts)
     const texture = await getTexture(layouts)
@@ -47,7 +47,7 @@ const getSprites = (
     note: NoteResources,
     directionalFlick: DirectionalFlickResources,
     lane: LaneResources,
-    misc: MiscResources
+    misc: MiscResources,
 ) => {
     const unitTransform = scale(1, 1)
 
@@ -412,14 +412,14 @@ const getLayouts = (sprites: { names: string[]; image: Image; transform: SkinDat
         .sort(
             (a, b) =>
                 (b.image.width + 2) * (b.image.height + 2) -
-                (a.image.width + 2) * (a.image.height + 2)
+                (a.image.width + 2) * (a.image.height + 2),
         )
         .map((sprite) => {
             const width = sprite.image.width + 2
             const height = sprite.image.height + 2
 
             const spaceIndex = spaces.findIndex(
-                (space) => space.width >= width && space.height >= height
+                (space) => space.width >= width && space.height >= height,
             )
             if (spaceIndex == -1) throw 'Insufficient size'
 
@@ -457,14 +457,14 @@ const getInfo = (
     directionalFlickTexts: string[],
     laneTexts: string[],
     packageName: string,
-    packageVersion: string
+    packageVersion: string,
 ) => ({
     version: 3,
     title: Object.fromEntries(
         servers.map((_, i) => [
             localizations[i],
             `${noteTexts[i]} / ${directionalFlickTexts[i]} / ${laneTexts[i]}`,
-        ])
+        ]),
     ),
     subtitle: {
         en: 'BanG Dream! Girls Band Party!',
@@ -497,7 +497,7 @@ const getData = (
         names: string[]
         image: Image
         transform: SkinDataTransform
-    }[]
+    }[],
 ) => {
     const data: SkinData = {
         width: 2048,
@@ -512,7 +512,7 @@ const getData = (
                     w: layout.image.width,
                     h: layout.image.height,
                     transform: layout.transform,
-                }))
+                })),
             )
             .flat(),
     }
@@ -527,7 +527,7 @@ const getTexture = async (
         names: string[]
         image: Image
         transform: SkinDataTransform
-    }[]
+    }[],
 ) =>
     Image.create(2048, 2048, 4)
         .toSharp()
@@ -537,65 +537,65 @@ const getTexture = async (
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, 0, 0, 1, image.height).then((pad) =>
-                            toComposition(pad, x - 1, y)
-                        )
-                    )
+                            toComposition(pad, x - 1, y),
+                        ),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, 0, 0, image.width, 1).then((pad) =>
-                            toComposition(pad, x, y - 1)
-                        )
-                    )
+                            toComposition(pad, x, y - 1),
+                        ),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, image.width - 1, 0, 1, image.height).then((pad) =>
-                            toComposition(pad, x + image.width, y)
-                        )
-                    )
+                            toComposition(pad, x + image.width, y),
+                        ),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, 0, image.height - 1, image.width, 1).then((pad) =>
-                            toComposition(pad, x, y + image.height)
-                        )
-                    )
+                            toComposition(pad, x, y + image.height),
+                        ),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
-                        crop(image, 0, 0, 1, 1).then((pad) => toComposition(pad, x - 1, y - 1))
-                    )
+                        crop(image, 0, 0, 1, 1).then((pad) => toComposition(pad, x - 1, y - 1)),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, image.width - 1, 0, 1, 1).then((pad) =>
-                            toComposition(pad, x + image.width, y - 1)
-                        )
-                    )
+                            toComposition(pad, x + image.width, y - 1),
+                        ),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, 0, image.height - 1, 1, 1).then((pad) =>
-                            toComposition(pad, x - 1, y + image.height)
-                        )
-                    )
+                            toComposition(pad, x - 1, y + image.height),
+                        ),
+                    ),
                 ),
                 await Promise.all(
                     layouts.map(({ image, x, y }) =>
                         crop(image, image.width - 1, image.height - 1, 1, 1).then((pad) =>
-                            toComposition(pad, x + image.width, y + image.height)
-                        )
-                    )
+                            toComposition(pad, x + image.width, y + image.height),
+                        ),
+                    ),
                 ),
-            ].flat()
+            ].flat(),
         )
         .png({ compressionLevel: 9 })
 
 const getThumbnail = async (
     note: NoteResources,
     directionalFlick: DirectionalFlickResources,
-    lane: LaneResources
+    lane: LaneResources,
 ) => {
     const width = (480 * 1.35) / 0.875
     const height = (width * lane.lineImage.height) / lane.lineImage.width
@@ -605,7 +605,7 @@ const getThumbnail = async (
         Math.round((width - 480) / 2),
         0,
         480,
-        Math.round(height)
+        Math.round(height),
     )
 
     const toThumbnailComposition = async (
@@ -613,7 +613,7 @@ const getThumbnail = async (
         x: number,
         y: number,
         w: number,
-        h: number
+        h: number,
     ) => toComposition(await resize(image, w * 80, h * 80, 'lanczos3'), x * 80, y * 80)
 
     return Image.create(480, 480, 4)
@@ -627,7 +627,7 @@ const getThumbnail = async (
                 toThumbnailComposition(note.noteGreen, 4, 0, 2, 1),
                 toThumbnailComposition(directionalFlick.noteLeft, 0, 1, 2, 1),
                 toThumbnailComposition(directionalFlick.noteRight, 4, 1, 2, 1),
-            ])
+            ]),
         )
         .png({ compressionLevel: 9 })
 }
