@@ -1,8 +1,8 @@
 import { Catalog } from '../catalog.mjs'
 import { DirectionalFlickResources, getDirectionalFlickResources } from './directional-flick.mjs'
-import { getLaneResources, LaneResources } from './lane.mjs'
+import { LaneResources, getLaneResources } from './lane.mjs'
 import { getMiscResources } from './misc.mjs'
-import { getNoteResources, NoteResources } from './note.mjs'
+import { NoteResources, getNoteResources } from './note.mjs'
 
 export type Resources = Awaited<ReturnType<typeof getResources>>
 
