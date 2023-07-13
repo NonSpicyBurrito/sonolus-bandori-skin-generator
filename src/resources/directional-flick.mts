@@ -12,10 +12,8 @@ export const getDirectionalFlickResources = async (id: string, server: Server, t
 
     console.log('Fetching assets...')
     const [spritesImage, sprites] = await Promise.all([
-        fetchImage(
-            `/assets/${server}/ingameskin/noteskin/directionalflickskin${id}_rip/DirectionalFlickSprites.png`,
-        ),
-        fetchJson(`/assets/${server}/ingameskin/noteskin/directionalflickskin${id}_rip/.sprites`),
+        fetchImage(`/assets/${server}/ingameskin/noteskin/${id}_rip/DirectionalFlickSprites.png`),
+        fetchJson(`/assets/${server}/ingameskin/noteskin/${id}_rip/.sprites`),
     ])
 
     console.log('Extracting sprites...')

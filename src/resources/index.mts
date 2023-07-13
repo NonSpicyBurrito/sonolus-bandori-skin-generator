@@ -31,4 +31,10 @@ export const getResources = async (catalog: Catalog) => {
     return resources
 }
 
-export const clean = (name: string) => (name[0] === '_' ? name.slice(1) : name)
+export const clean = (name: string) => {
+    if (name.startsWith('directionalflickskin_')) return name.slice(21)
+    if (name.startsWith('directionalflickskin')) return name.slice(20)
+    if (name.startsWith('skin_')) return name.slice(5)
+    if (name.startsWith('skin')) return name.slice(4)
+    return name
+}

@@ -12,11 +12,11 @@ export const getNoteResources = async (id: string, server: Server, texts: string
 
     console.log('Fetching assets...')
     const [spritesImage, longImage, slideImage, simLineImage, sprites] = await Promise.all([
-        fetchImage(`/assets/${server}/ingameskin/noteskin/skin${id}_rip/RhythmGameSprites.png`),
-        fetchImage(`/assets/${server}/ingameskin/noteskin/skin${id}_rip/longNoteLine.png`),
-        fetchImage(`/assets/${server}/ingameskin/noteskin/skin${id}_rip/longNoteLine2.png`),
-        fetchImage(`/assets/${server}/ingameskin/noteskin/skin${id}_rip/simultaneous_line.png`),
-        fetchJson(`/assets/${server}/ingameskin/noteskin/skin${id}_rip/.sprites`),
+        fetchImage(`/assets/${server}/ingameskin/noteskin/${id}_rip/RhythmGameSprites.png`),
+        fetchImage(`/assets/${server}/ingameskin/noteskin/${id}_rip/longNoteLine.png`),
+        fetchImage(`/assets/${server}/ingameskin/noteskin/${id}_rip/longNoteLine2.png`),
+        fetchImage(`/assets/${server}/ingameskin/noteskin/${id}_rip/simultaneous_line.png`),
+        fetchJson(`/assets/${server}/ingameskin/noteskin/${id}_rip/.sprites`),
     ])
 
     console.log('Extracting sprites...')

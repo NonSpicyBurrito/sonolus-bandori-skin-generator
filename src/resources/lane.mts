@@ -13,8 +13,8 @@ export const getLaneResources = async (id: string, server: Server, texts: string
 
     console.log('Fetching assets...')
     const [stageImage, lineImage] = await Promise.all([
-        fetchImage(`/assets/${server}/ingameskin/fieldskin/skin${id}_rip/bg_line_rhythm.png`),
-        fetchImage(`/assets/${server}/ingameskin/fieldskin/skin${id}_rip/game_play_line.png`),
+        fetchImage(`/assets/${server}/ingameskin/fieldskin/${id}_rip/bg_line_rhythm.png`),
+        fetchImage(`/assets/${server}/ingameskin/fieldskin/${id}_rip/game_play_line.png`),
     ])
 
     console.log('Extracting sprites...')
