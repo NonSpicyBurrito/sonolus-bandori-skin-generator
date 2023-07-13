@@ -12,31 +12,36 @@ export const getCatalog = async () => {
 
     console.log('Fetching asset info...')
     const assets = await Promise.all(
-        servers.map((server) => fetchJson(`/api/explorer/${server}/assets/_info.json`))
+        servers.map((server) => fetchJson(`/api/explorer/${server}/assets/_info.json`)),
     )
 
     console.log('Fetching names...')
     const [noteInfo, directionalFlickInfo, laneInfo] = await Promise.all(
         ['notes', 'directionalFlicks', 'lanes'].map((name) =>
-            fetchJson(`/api/skin/${name}.all.3.json`)
-        )
+            fetchJson(`/api/skin/${name}.all.3.json`),
+        ),
     )
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    for (const skin of Object.values<any>(directionalFlickInfo)) {
+        skin.assetBundleName = `directionalflick${skin.assetBundleName}`
+    }
 
     return collectAssets(assets, {
         notes: {
             info: noteInfo,
             getter: (asset) => asset.ingameskin.noteskin,
-            prefix: 'skin',
+            filter: (name) => !name.startsWith('directionalflick') && !name.endsWith('sample'),
         },
         directionalFlicks: {
             info: directionalFlickInfo,
             getter: (asset) => asset.ingameskin.noteskin,
-            prefix: 'directionalflickskin',
+            filter: (name) => name.startsWith('directionalflick') && !name.endsWith('sample'),
         },
         lanes: {
             info: laneInfo,
             getter: (asset) => asset.ingameskin.fieldskin,
-            prefix: 'skin',
+            filter: () => true,
         },
     })
 }
@@ -44,42 +49,43 @@ export const getCatalog = async () => {
 type Info = Record<string, { assetBundleName: string; skinName: string[] }>
 
 const collectAssets = <
-    T extends Record<string, { info: Info; getter: (asset: Asset) => Asset; prefix: string }>
+    T extends Record<
+        string,
+        {
+            info: Info
+            getter: (asset: Asset) => Asset
+            filter: (name: string) => boolean
+        }
+    >,
 >(
     assets: Asset[],
-    collector: T
+    collector: T,
 ) =>
     Object.fromEntries(
-        Object.entries(collector).map(([key, { info, getter, prefix }]) => [
+        Object.entries(collector).map(([key, { info, getter, filter }]) => [
             key,
             Object.entries(
                 assets
-                    .map((asset) =>
-                        Object.keys(getter(asset))
-                            .filter((name) => name.startsWith(prefix))
-                            .filter((name) => !name.endsWith('sample'))
-                    )
+                    .map((asset) => Object.keys(getter(asset)).filter(filter))
                     .reduce(
                         (all, names, index) => ({
-                            ...Object.fromEntries(
-                                names.map((name) => [name.slice(prefix.length), servers[index]])
-                            ),
+                            ...Object.fromEntries(names.map((name) => [name, servers[index]])),
                             ...all,
                         }),
-                        {} as Record<string, Server>
-                    )
+                        {} as Record<string, Server>,
+                    ),
             ).map(([id, server]) => ({ id, server, texts: getTexts(info, id) })),
-        ])
+        ]),
     ) as { [K in keyof T]: { id: string; server: Server; texts: string[] }[] }
 
 const getTexts = (info: Info, id: string) => {
-    const fallback = capitalize(clean(id))
+    const fallback = clean(id).split('_').map(capitalize).join(' ')
 
-    const skin = Object.values(info).find((skin) => skin.assetBundleName === `skin${id}`)
+    const skin = Object.values(info).find((skin) => skin.assetBundleName === id)
     if (!skin) return servers.map(() => fallback)
 
     return servers.map(
-        (_, i) => skin.skinName[i] || skin.skinName.filter((name) => !!name)[0] || fallback
+        (_, i) => skin.skinName[i] || skin.skinName.filter((name) => !!name)[0] || fallback,
     )
 }
 

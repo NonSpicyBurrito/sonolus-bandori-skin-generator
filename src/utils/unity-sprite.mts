@@ -22,6 +22,6 @@ export async function extractUnitySprite(image: Image, sprites: UnitySprite[], n
         sprite.Base.m_Rect.x,
         image.height - sprite.Base.m_Rect.y - sprite.Base.m_Rect.height,
         sprite.Base.m_Rect.width,
-        sprite.Base.m_Rect.height
+        sprite.Base.m_Rect.height,
     )
 }

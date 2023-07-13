@@ -12,30 +12,22 @@ export const getDirectionalFlickResources = async (id: string, server: Server, t
 
     console.log('Fetching assets...')
     const [spritesImage, sprites] = await Promise.all([
-        fetchImage(
-            `/assets/${server}/ingameskin/noteskin/directionalflickskin${id}_rip/DirectionalFlickSprites.png`
-        ),
-        fetchJson(`/assets/${server}/ingameskin/noteskin/directionalflickskin${id}_rip/.sprites`),
+        fetchImage(`/assets/${server}/ingameskin/noteskin/${id}_rip/DirectionalFlickSprites.png`),
+        fetchJson(`/assets/${server}/ingameskin/noteskin/${id}_rip/.sprites`),
     ])
 
     console.log('Extracting sprites...')
 
-    const noteLeft = await rotate(
-        await extractUnitySprite(spritesImage, sprites, 'note_flick_l_3'),
-        90
-    )
-    const noteRight = await rotate(
-        await extractUnitySprite(spritesImage, sprites, 'note_flick_r_3'),
-        -90
-    )
+    const noteLeft = await extractUnitySprite(spritesImage, sprites, 'note_flick_l_3')
+    const noteRight = await extractUnitySprite(spritesImage, sprites, 'note_flick_r_3')
 
     const markerLeft = await rotate(
         await extractUnitySprite(spritesImage, sprites, 'note_flick_top_l'),
-        90
+        90,
     )
     const markerRight = await rotate(
         await extractUnitySprite(spritesImage, sprites, 'note_flick_top_r'),
-        -90
+        -90,
     )
 
     return {
