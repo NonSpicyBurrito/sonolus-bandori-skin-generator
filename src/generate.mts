@@ -371,6 +371,42 @@ const getSprites = (
         },
 
         {
+            names: [SkinSpriteName.GridNeutral],
+            image: misc.gridNeutral,
+            transform: unitTransform,
+        },
+        {
+            names: [SkinSpriteName.GridRed],
+            image: misc.gridRed,
+            transform: unitTransform,
+        },
+        {
+            names: [SkinSpriteName.GridGreen],
+            image: misc.gridGreen,
+            transform: unitTransform,
+        },
+        {
+            names: [SkinSpriteName.GridBlue],
+            image: misc.gridBlue,
+            transform: unitTransform,
+        },
+        {
+            names: [SkinSpriteName.GridYellow],
+            image: misc.gridYellow,
+            transform: unitTransform,
+        },
+        {
+            names: [SkinSpriteName.GridPurple],
+            image: misc.gridPurple,
+            transform: unitTransform,
+        },
+        {
+            names: [SkinSpriteName.GridCyan],
+            image: misc.gridCyan,
+            transform: unitTransform,
+        },
+
+        {
             names: ['Bandori Stage'],
             image: lane.stageImage,
             transform: unitTransform,
@@ -459,7 +495,7 @@ const getInfo = (
     packageName: string,
     packageVersion: string,
 ) => ({
-    version: 3,
+    version: 4,
     title: Object.fromEntries(
         servers.map((_, i) => [
             localizations[i],
