@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import { Image } from './utils/Image.mjs'
 
 export const fetchImage = async (path: string) => {
