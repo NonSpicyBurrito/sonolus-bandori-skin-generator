@@ -13,7 +13,7 @@
     "fs-extra": "^11.1.1",
     "node-fetch": "^3.3.2",
     "sharp": "^0.32.5",
-    "sonolus-core": "~7.3.0"
+    "sonolus-core": "7.5.0-alpha.4"
   },
   "devDependencies": {
     "@types/color-convert": "^2.0.1",
