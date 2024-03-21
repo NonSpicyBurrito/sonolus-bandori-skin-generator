@@ -18,7 +18,7 @@ const resources = await getResources(catalog)
 for (const note of resources.notes) {
     for (const directionalFlick of resources.directionalFlicks) {
         for (const lane of resources.lanes) {
-            const { name, info, data, texture, thumbnail } = await generate(
+            const { name, item, data, texture, thumbnail } = await generate(
                 note,
                 directionalFlick,
                 lane,
@@ -27,7 +27,7 @@ for (const note of resources.notes) {
                 packageVersion,
             )
 
-            fs.outputJsonSync(`output/${name}/info.json`, info, { spaces: 4 })
+            fs.outputJsonSync(`output/${name}/item.json`, item, { spaces: 4 })
             fs.outputFileSync(`output/${name}/data`, data)
             await texture.toFile(`output/${name}/texture.png`)
             await thumbnail.toFile(`output/${name}/thumbnail.png`)
