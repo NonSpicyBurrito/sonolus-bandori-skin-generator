@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
         "lib": [
-          "ES2021"
+            "ES2023"
         ],
+        "target": "ES2022",
         "module": "Node16",
-        "target": "ES2021",
         "moduleResolution": "Node16",
 
         "strict": true,
@@ -13,6 +13,6 @@
         "forceConsistentCasingInFileNames": true,
 
         "outDir": "./dist",
-        "rootDir": "./src"
+        "rootDir": "./src",
     }
 }
