@@ -356,7 +356,7 @@ const getSprites = (
         {
             names: [SkinSpriteName.JudgmentLine],
             image: lane.line,
-            transform: unitTransform,
+            transform: scale(1, 0.5),
         },
         {
             names: [SkinSpriteName.NoteSlot],
