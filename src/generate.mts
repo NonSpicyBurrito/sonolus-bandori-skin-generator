@@ -510,7 +510,7 @@ const getItem = (
         zht: 'BanG Dream! 少女樂團派對',
     },
     author: {
-        en: 'Burrito',
+        en: 'Burrito#1000',
     },
     tags: [],
     description: {
